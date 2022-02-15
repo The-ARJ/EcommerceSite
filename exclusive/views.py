@@ -16,14 +16,14 @@ def login(request):
         password = request.POST["password"]
         try:
             customer = Customer.objects.get(username=name, password=password)
-            return redirect('index')
+            return redirect('Main')
 
 
         except:
             user = auth.authenticate(request, username=name, password=password)
             if user is not None:
                 return redirect('show')
-            return render(request, 'index.html')
+            return render(request, 'Main/Main.html')
 
     else:
         form = CustomerForm()
@@ -80,3 +80,7 @@ def search(request):
 
 def searchproduct(request):
     return redirect("/show")
+
+
+def Main(request):
+    return render(request, "Main/Main.html")

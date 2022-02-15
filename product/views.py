@@ -22,7 +22,7 @@ def product_create(request):
 
 def Sale(request):
     p = Product.objects.all()
-    return render(request, "Product.html", {'product': p})
+    return render(request, "Main/Product.html", {'product': p})
 
 
 def pupdate(request, p_id):
